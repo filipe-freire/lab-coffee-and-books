@@ -6,7 +6,12 @@ const createError = require('http-errors');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
+
+// ROUTERS
 const indexRouter = require('./routes/index');
+const placesRouter = require('./routes/places');
+
+const Place = require('./models/place');
 
 const app = express();
 
@@ -27,6 +32,7 @@ app.use(express.static(join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/places', placesRouter);
 app.use('/', indexRouter);
 
 // Catch missing routes and forward to error handler
