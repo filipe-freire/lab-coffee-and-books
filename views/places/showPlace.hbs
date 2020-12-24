@@ -1,2 +1,7 @@
-<h1>{{place.name}}</h1>
+<h1> {{place.name}} </h1>
 <h3> {{place.type}} </h3>
+<h3>Longitude: {{place.location.coordinates.[0]}} </h3>
+<h3>Latitude: {{place.location.coordinates.[1]}} </h3>
+<form method="POST" action="{{ place.id }}/delete">
+  <button>Delete Place</button>
+</form>

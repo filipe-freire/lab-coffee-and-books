@@ -9,6 +9,16 @@ const placeSchema = new mongoose.Schema(
     type: {
       type: String,
       enum: ['coffee_shop', 'bookstore']
+    },
+    location: {
+      // [long , lat]
+      coordinates: [
+        {
+          type: Number,
+          min: -180,
+          max: 180
+        }
+      ]
     }
   },
   {
